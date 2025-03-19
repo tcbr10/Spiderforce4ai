@@ -1,0 +1,26 @@
+spec:
+  name: spiderforce4ai
+  services:
+    - name: web
+      dockerfile_path: Dockerfile
+      git:
+        branch: main
+        repo_clone_url: https://github.com/petertamai/SpiderForce4AI.git
+      envs:
+        - key: PORT
+          value: "3004"
+        - key: NODE_ENV
+          value: "production"
+        - key: MAX_RETRIES
+          value: "2"
+        - key: PAGE_TIMEOUT
+          value: "30000"
+        - key: MAX_CONCURRENT_PAGES
+          value: "10"
+        - key: AGGRESSIVE_CLEANING
+          value: "true"
+        - key: REMOVE_IMAGES
+          value: "false"
+      http_port: 3004
+      instance_count: 1
+      instance_size_slug: basic-s
